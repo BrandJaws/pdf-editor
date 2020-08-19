@@ -13,7 +13,13 @@ class PdfEditorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dd('im here');
+        $this->publishes([
+            __DIR__.'/../config/pdf-editor.php' => config_path('pdf-editor.php')
+        ]);
+
+        $this->publishes([
+            __DIR__.'/../resources/assets' => resource_path('js/vendor/brandjaws/pdf-editor')
+        ],'vue-components');
     }
 
     /**
